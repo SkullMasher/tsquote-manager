@@ -8,21 +8,50 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
   <header>
     <nav>
-      <ul class="header-navbar">
-        <li><h1>TS Quotes Manager</h1></li>
-        <li class="navbar-header-item"><a href="#">Editeur</a></li>
-        <li class="navbar-header-item"><a href="/json">Voir</a></li>
+      <ul class="primary-nav">
+        <li class="primary-nav__item"><a class="primary-nav__link" href="#"><h1 class="app-title">TS Quotes Manager</h1></a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="#search">Rechercher</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="#editor">Voir</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/api">API</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link" href="/about">A propos</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link btn btn--signin" href="/signin">Inscription</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link btn btn--login" href="/login">Se connecter</a></li>
+        <li class="primary-nav__item"><a class="primary-nav__link btn btn--logout" href="/logout">Se déconnecter</a></li>
       </ul>
     </nav>
+    <p><a href="#"><span class="secret-message arrow"></span></a>TSquotes Manager <small>le gestionnaire de citation <a href="https://www.heartlessgaming.com">Heartless Gaming</a></small> <span class="even-smaller">Aidez skullmasher à ne plus perdre les quotes dans son raid 0.</span></p>
   </header>
 
-  <section>
-    <form action="formchecker.php">
 
-    </form>
-  </section>
+  <main>
+
+    <h2>Anatomie d'une TS quotes.</h2>
+
+    <p>Soumis par : Skullmasher</p>
+    <p>Protagoniste : Guiltyspark, Skullmasher</p>
+    <p>Date de publication : 06/06/06</p>
+    <div class="quote">
+      <div class="speaker-person">
+        <p>Skullmasher :</p>
+      </div>
+      <div class="speaker-text">
+        <p>Hello There c'est Skull. En direct du monde libre.</p>
+      </div>
+    </div>
+    <button class="btn btn--edit-quote">Editer</button>
+    <button class="btn btn--copy">Copy</button>
+
+  </main>
+
+
+  <footer>
+    <p>Attrape le sauce code sur <a class="social social--github" href="https://github.com/SkullMasher/tsquote-manager">github</a>.</p>
+    <p>by "Culmacher" <a class="social social--twitter" href="https://twitter.com/skullm4sher">(@skullm4sher)</a>.</p>
+    <p>Play more, care less, be an <a href="https://www.heartlessgaming.com">Heartless.</a></p>
+  </footer>
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 </body>
