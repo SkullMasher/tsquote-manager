@@ -36,6 +36,7 @@
   "dependencies": {
     "clean-css": "^3.4.8",
     "imagemin": "^4.0.0",
+    "knacss": "^4.4.4",
     "ncp": "^2.0.0",
     "node-minify": "^1.3.7"
   }
