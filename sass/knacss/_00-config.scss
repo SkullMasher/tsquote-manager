@@ -16,9 +16,9 @@ $h5-size        : 1.8rem !default; // equiv "18px"
 $h6-size        : 1.6rem !default; // equiv "16px"
 
 // font stacks
-$font-stack-common    : sans-serif !default; // common font
-$font-stack-headings  : sans-serif !default; // headings font
-$font-stack-monospace : consolas, courier, monospace !default; // monospace font
+$font-stack-common    : 'liberation_sansregular', sans-serif !default; // common font
+$font-stack-headings  : 'liberation_sansregular', sans-serif !default; // headings font
+$font-stack-monospace : 'liberation_monoregular', consolas, courier, monospace !default; // monospace font
 
 // font colors
 $base-color             : #000 !default; // text color on body and content

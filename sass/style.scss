@@ -1,4 +1,49 @@
 
 @import 'knacss/knacss';
+@import 'variables';
 
-// Building app these are just temporary stuff
+.wrapper {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-title {
+  display: none;
+}
+
+.app-img {
+  width: 140px;
+}
+
+.primary-nav__app-auth {
+  font-family: 'liberation_sansbold';
+}
+
+.btn--signin, .btn--login {
+  text-decoration: none;
+}
+
+.btn--login {
+  padding-left: 30px;
+}
+
+.btn--signin:hover, .btn--login:hover {
+  text-decoration: underline;
+}
+
+.app-description {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.app-description__title {
+  font-size: $h3-size;
+}
