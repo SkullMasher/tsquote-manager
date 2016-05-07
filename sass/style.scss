@@ -2,12 +2,23 @@
 @import 'knacss/knacss';
 @import 'variables';
 
+/*------------------------------------*\
+    WRAPPER
+\*------------------------------------*/
+
 .wrapper {
   width: 700px;
   margin: 0 auto;
 }
+.wrapper--full {
+  width: 100%;
+}
 
-.primary-nav {
+/*------------------------------------*\
+    #BAR
+\*------------------------------------*/
+
+.site-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +32,7 @@
   width: 140px;
 }
 
-.primary-nav__app-auth {
+.site-nav__app-auth {
   font-family: 'liberation_sansbold';
 }
 
@@ -48,7 +59,7 @@
   font-size: $h3-size;
 }
 
-.search-quote--input {
+.search-quote__input {
   width: 100%;
   border: 0;
   padding: 10px 5px;
@@ -60,11 +71,11 @@
   transition-property: box-shadow;
 }
 
-.search-quote--input:hover {
+.search-quote__input:hover {
   box-shadow: 0px 0px 5px 0px rgba(85,138,187,.50);
 }
 
-.quote--separator {
+.quote__separator {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,6 +88,6 @@
   background-color: #333;
 }
 
-.quote--separator-img {
+.quote__separator-img {
   width: 25px;
 }
