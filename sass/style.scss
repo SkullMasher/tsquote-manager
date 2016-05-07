@@ -63,3 +63,20 @@
 .search-quote--input:hover {
   box-shadow: 0px 0px 5px 0px rgba(85,138,187,.50);
 }
+
+.quote--separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.quote-separator-decoration {
+  width: 30%;
+  height: 1px;
+  background-color: #333;
+}
+
+.quote--separator-img {
+  width: 25px;
+}
