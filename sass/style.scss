@@ -2,6 +2,7 @@
 @import 'knacss/knacss';
 @import 'variables';
 
+
 /*------------------------------------*\
     WRAPPER
 \*------------------------------------*/
@@ -15,7 +16,7 @@
 }
 
 /*------------------------------------*\
-    #BAR
+    MAIN SITE NAVIGATION
 \*------------------------------------*/
 
 .site-nav {
@@ -24,28 +25,30 @@
   justify-content: space-between;
 }
 
-.app-title {
+.site-nav__title {
   display: none;
 }
 
-.app-img {
+.site-nav__logo {
   width: 140px;
 }
 
-.site-nav__app-auth {
+.site-nav__auth {
   font-family: 'liberation_sansbold';
 }
 
 .btn--signin, .btn--login {
   text-decoration: none;
-}
 
-.btn--login {
-  padding-left: 30px;
+
 }
 
 .btn--signin:hover, .btn--login:hover {
   text-decoration: underline;
+}
+
+.btn--login {
+  padding-left: 30px;
 }
 
 .app-description {
@@ -58,6 +61,11 @@
 .app-description__title {
   font-size: $h3-size;
 }
+
+
+/*------------------------------------*\
+    SEARCH QUOTES
+\*------------------------------------*/
 
 .search-quote__input {
   width: 100%;
@@ -75,11 +83,71 @@
   box-shadow: 0px 0px 5px 0px rgba(85,138,187,.50);
 }
 
+/*------------------------------------*\
+    PROTAGONIST OBJECT
+\*------------------------------------*/
+
+.protagonist {
+  color: #000;
+}
+
+.protagonist--red {
+  color: red;
+}
+.protagonist--blue {
+  color: blue;
+}
+
+.protagonist--purple {
+  color: purple;
+}
+
+.protagonist--green {
+  color: green;
+}
+
+.protagonist--orange {
+  color: orange;
+}
+
+/*------------------------------------*\
+    QUOTES
+\*------------------------------------*/
+
+.quote {
+  margin-top: 50px;
+}
+
+.quote__title {
+  font-size: $h3-size;
+  text-align: center;
+}
+
+.quote__meta {
+  display:flex;
+  justify-content: space-between;
+}
+
+.quote__protagonist-list {
+  text-align: center;
+}
+
+.quote__protagonist-list-people {
+
+}
+
+.quote__content {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-size: $h6-size;
+}
+
 .quote__separator {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
+  // margin-top: 50px;
 }
 
 .quote-separator-decoration {
@@ -90,4 +158,32 @@
 
 .quote__separator-img {
   width: 25px;
+}
+
+/*------------------------------------*\
+    FOOTER
+\*------------------------------------*/
+
+.site-foot {
+  margin-top: 100px;
+}
+
+.foot-nav {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: #333;
+  color: #fff;
+}
+
+.footnav__list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footnav__links {
+  color: DodgerBlue;
+
+  &:hover {
+    color: blue;
+  }
 }

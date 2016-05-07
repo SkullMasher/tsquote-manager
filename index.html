@@ -8,48 +8,49 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="wrapper">
-
-    <header>
-      <nav>
-        <div class="site-nav">
-          <div class="site-nav__item site-nav__app-logo"><a class="site-nav__link" href="#"><h1 class="app-title">Quotes Manager</h1><img src="img/quote-manager-logo.png" alt="Quotes manager logo" class="app-img"></a></div>
-          <div class="site-nav__item site-nav__app-auth">
+    <header class="wrapper">
+      <nav class="site-nav">
+          <a class="site-nav__home" href="#"><h1 class="site-nav__title">Quotes Manager</h1><img src="img/quote-manager-logo.png" alt="Quotes manager logo" class="site-nav__logo"></a>
+          <div class="site-nav__item site-nav__auth">
             <a class="btn btn--signin" href="/signin">S'inscrire</a>
             <a class="btn btn--login" href="/login">Se connecter</a>
           </div>
-        </div>
       </nav>
       <p class="app-description" id="js-appDescription"><span class="app-description__title">TS Quotes Manager</span> Aidez Skullmasher à ne plus perdre les quotes dans son raid 0...</p>
     </header>
 
-    <main>
+    <main class="wrapper">
       <section class="search-quote">
         <input type="text" placeholder="Rechercher un auteur, un protagoniste." class="search-quote__input" id="js-searchField">
         <p class="search-quote__filter">Filtres : <a class="btn filter__author" href="#">auteur</a>, <a class="btn filter__protagonist" href="#">protagoniste</a></p>
       </section>
 
-      <section class="quotes">
+      <section class="quote">
 
         <article class="quote__item">
           <header class="quote-header">
             <h2 class="quote__title">Titre de quote optionel</h2>
-            <p class="quote__submittedby">Soumis par : <span id="js-quote-submittedby">Guiltyspark</span></p>
-            <div class="quote__protagonist-list">
-              <p class="quote__protagonist-list-title">Protagoniste</p>
-              <p class="quote__protagonist-list-people"><span class="protagonist protagonist--guiltyspark">Guiltyspark</span>, <span class="protagonist protagonist--skullmahser">Skullmahser</span></p>
+            <div class="quote__meta">
+              <div class="quote__submittedby">
+                <p>Soumis par : <span id="js-quote-submittedby">Guiltyspark</span></p>
+              </div>
+              <div class="quote__protagonist-list">
+                <p class="quote__protagonist-list-title">Protagoniste</p>
+                <p class="quote__protagonist-list-people protagonist"><span class="protagonist--blue">Guiltyspark</span>, <span class="protagonist--red">Skullmasher</span></p>
+              </div>
+              <div class="quote__publishing-date">
+                <p class="quote__publishing-date">Date de publication : <span id="js-quotePublishingDate">06/06/06</span></p>
+              </div>
             </div>
-            <p class="quote__publishing-date">Date de publication : <span id="js-quotePublishingDate">06/06/06</span></p>
           </header>
-          <main class="quote-main">
-            <div class="quote__content">
-              <div class="quote__protagonist">
-                <p class="protagonist protagonist--guiltyspark">Guiltyspark</p>
-              </div>
-              <div class="quote__protagonist-speaking">
-                <p class="quote__text">Hello There c'est Skull, en direct du monde libre.</p>
-                <p class="quote__text">Tu nous fais chier avec ton monde libre.</p>
-              </div>
+          <main class="quote__content">
+            <div class="quote__protagonist">
+              <p class="protagonist"><span class="protagonist--red">Guiltyspark</span> :</p>
+              <p class="protagonist"><span class="protagonist--blue">Skullmasher</span> :</p>
+            </div>
+            <div class="quote__protagonist-speaking">
+              <p class="quote__text">Hello There c'est Skull, en direct du monde libre.</p>
+              <p class="quote__text">Tu nous fais chier avec ton monde libre.</p>
             </div>
           </main>
           <footer class="quote-footer">
@@ -64,12 +65,15 @@
       <section>
     </main>
 
-    <footer>
-      <p>Attrape le sauce code sur <a class="social social--github" href="https://github.com/SkullMasher/tsquote-manager">giteub</a>.</p>
-      <p>by "Culmacher" <a class="social social--twitter" href="https://twitter.com/skullm4sher">(@skullm4sher)</a>.</p>
-      <p>Play more, care less, be an <a href="https://www.heartlessgaming.com">Heartless.</a></p>
+    <footer class="site-foot">
+      <nav class="foot-nav">
+        <ul class="footnav__list unstyled">
+          <li class="footnav__item">Attrape le sauce code sur <a class="footnav__links footnav__links--github" href="https://github.com/SkullMasher/tsquote-manager">giteub</a>.</li>
+          <li class="footnav__item">by "Culmacher" <a class="footnav__links footnav__links--twitter" href="https://twitter.com/skullm4sher">(@skullm4sher)</a>.</li>
+          <li class="footnav__item">Play more, care less, be an <a class="footnav__links footnav__links--heartless" href="https://www.heartlessgaming.com">Heartless.</a></li>
+        </ul>
+      </nav>
     </footer>
-  </div>
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 </body>
