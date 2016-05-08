@@ -1,28 +1,28 @@
-var Promise = require('bluebird')
-var chalk = require('chalk')
-var dateFormat = require('dateformat')
-var rimraf = require('rimraf-promise')
-var compressor = require('node-minify')
-var Imagemin = require('imagemin')
+let Promise = require('bluebird')
+let chalk = require('chalk')
+let dateFormat = require('dateformat')
+let rimraf = require('rimraf-promise')
+let compressor = require('node-minify')
+let Imagemin = require('imagemin')
 
 // http://bluebirdjs.com/docs/api/promisification.html
-var fs = Promise.promisifyAll(require('fs'))
-// var mkdirp = Promise.promisifyAll(require('mkdirp'))
-var ncp = Promise.promisifyAll(require('ncp'))
+let fs = Promise.promisifyAll(require('fs'))
+// let mkdirp = Promise.promisifyAll(require('mkdirp'))
+let ncp = Promise.promisifyAll(require('ncp'))
 
 // console.log for 1337 h4X0r
-var log = console.log.bind(console)
+let log = console.log.bind(console)
 
-// var nowFormat = dateFormat(new Date(), 'HH:MM:ss')
+// let nowFormat = dateFormat(new Date(), 'HH:MM:ss')
 
 // File & folder path used by this program
-var buildFolderName = 'dist'
-var buildFolderNameCss = 'css'
-var buildFolderNameJs = 'js'
-var buildFolderNameImg = 'img'
-var fontFolderName = 'font'
-var cssFileName = 'style.css'
-var jsFileName = 'main.js'
+const buildFolderName = 'dist'
+const buildFolderNameCss = 'css'
+const buildFolderNameJs = 'js'
+const buildFolderNameImg = 'img'
+const fontFolderName = 'font'
+const cssFileName = 'style.css'
+const jsFileName = 'main.js'
 
 // Greeting Message
 log(chalk.red('  #####   '))
@@ -36,14 +36,14 @@ log(chalk.red('  # # #   ') + chalk.grey(' Play more, care less, be an heartless
 
 // Promise Version of :
 // https://stackoverflow.com/questions/11293857/fastest-way-to-copy-file-in-node-js
-var copyFile = function (source, target) {
+let copyFile = function (source, target) {
   return new Promise(function (resolve, reject) {
-    var rd = fs.createReadStream(source)
+    let rd = fs.createReadStream(source)
     rd.on('error', function (err) {
       reject(err)
     })
 
-    var wr = fs.createWriteStream(target)
+    let wr = fs.createWriteStream(target)
     wr.on('error', function (err) {
       reject(err)
     })
@@ -55,7 +55,7 @@ var copyFile = function (source, target) {
   })
 }
 
-var cleanDistFolder = function () {
+let cleanDistFolder = function () {
   return rimraf(buildFolderName)
     .then(function (res) {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'Old build folder cleaned')
@@ -63,9 +63,9 @@ var cleanDistFolder = function () {
     .catch(console.error)
 }
 
-var compressCss = function () {
+let compressCss = function () {
   return new Promise(function (resolve, reject) {
-    new compressor.minify({
+    compressor.minify({
       type: 'clean-css',
       fileIn: buildFolderNameCss + '/' + cssFileName,
       fileOut: buildFolderName + '/' + buildFolderNameCss + '/' + cssFileName,
@@ -80,9 +80,9 @@ var compressCss = function () {
   })
 }
 
-var compressJs = function () {
+let compressJs = function () {
   return new Promise(function (resolve, reject) {
-    new compressor.minify({
+    compressor.minify({
       type: 'uglifyjs',
       fileIn: buildFolderNameJs + '/' + jsFileName,
       fileOut: buildFolderName + '/' + buildFolderNameJs + '/' + jsFileName,
@@ -98,7 +98,7 @@ var compressJs = function () {
 }
 
 // TODO delete that stuff
-var minifyCss = function () {
+let minifyCss = function () {
   return compressCss()
     .then(function (res) {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'CSS Minified')
@@ -107,7 +107,7 @@ var minifyCss = function () {
 }
 
 // TODO delete that stuff
-var minifyJs = function () {
+let minifyJs = function () {
   return compressJs()
     .then(function (res) {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'JS Minified')
@@ -115,7 +115,7 @@ var minifyJs = function () {
     .catch(console.err)
 }
 
-var imgmin = function () {
+let imgmin = function () {
   return new Promise(function (resolve, reject) {
     return new Imagemin()
       .src('img/*.{gif,jpg,png,svg}')
@@ -135,7 +135,7 @@ var imgmin = function () {
   })
 }
 
-var copyFont = function () {
+let copyFont = function () {
   return ncp.ncpAsync(fontFolderName, buildFolderName + '/' + fontFolderName)
     .then(function () {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'Font folder copied')
@@ -143,7 +143,7 @@ var copyFont = function () {
     .catch(console.err)
 }
 
-var copyHtml = function () {
+let copyHtml = function () {
   return copyFile('index.html', 'dist/index.html')
     .then(function (res) {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'index.html copied')
