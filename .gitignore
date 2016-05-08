@@ -38,4 +38,6 @@ dist
 build
 
 # Archived data
+*.tar.gz
 *.tar.xz
+*.zip
