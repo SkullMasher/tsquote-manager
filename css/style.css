@@ -2054,8 +2054,7 @@ th {
   text-align: left;
 }
 
-/*------------------------------------*    WRAPPER
-\*------------------------------------*/
+/* WRAPPER */
 .wrapper {
   width: 700px;
   margin: 0 auto;
@@ -2065,8 +2064,7 @@ th {
   width: 100%;
 }
 
-/*------------------------------------*    MAIN SITE NAVIGATION
-\*------------------------------------*/
+/* MAIN SITE NAVIGATION */
 .site-nav {
   display: flex;
   align-items: center;
@@ -2108,8 +2106,7 @@ th {
   font-size: 2.4rem;
 }
 
-/*------------------------------------*    SEARCH QUOTES
-\*------------------------------------*/
+/* SEARCH QUOTES */
 .search-quote__input {
   width: 100%;
   border: 0;
@@ -2126,8 +2123,7 @@ th {
   box-shadow: 0px 0px 5px 0px rgba(85, 138, 187, 0.5);
 }
 
-/*------------------------------------*    PROTAGONIST OBJECT
-\*------------------------------------*/
+/* PROTAGONIST OBJECT */
 .protagonist {
   color: #000;
 }
@@ -2152,8 +2148,7 @@ th {
   color: orange;
 }
 
-/*------------------------------------*    QUOTES
-\*------------------------------------*/
+/* QUOTES */
 .quote {
   margin-top: 50px;
 }
@@ -2195,8 +2190,7 @@ th {
   width: 25px;
 }
 
-/*------------------------------------*    FOOTER
-\*------------------------------------*/
+/* FOOTER */
 .site-foot {
   margin-top: 100px;
 }

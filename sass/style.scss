@@ -2,10 +2,7 @@
 @import 'knacss/knacss';
 @import 'variables';
 
-
-/*------------------------------------*\
-    WRAPPER
-\*------------------------------------*/
+  /* WRAPPER */
 
 .wrapper {
   width: 700px;
@@ -15,9 +12,9 @@
   width: 100%;
 }
 
-/*------------------------------------*\
-    MAIN SITE NAVIGATION
-\*------------------------------------*/
+
+  /* MAIN SITE NAVIGATION */
+
 
 .site-nav {
   display: flex;
@@ -39,8 +36,6 @@
 
 .btn--signin, .btn--login {
   text-decoration: none;
-
-
 }
 
 .btn--signin:hover, .btn--login:hover {
@@ -63,9 +58,8 @@
 }
 
 
-/*------------------------------------*\
-    SEARCH QUOTES
-\*------------------------------------*/
+  /* SEARCH QUOTES */
+
 
 .search-quote__input {
   width: 100%;
@@ -77,15 +71,16 @@
   font-size: $h5-size;
   transition-duration: 0.3s;
   transition-property: box-shadow;
+
+  &:hover {
+    box-shadow: 0px 0px 5px 0px rgba(85,138,187,.50);
+  }
+
 }
 
-.search-quote__input:hover {
-  box-shadow: 0px 0px 5px 0px rgba(85,138,187,.50);
-}
 
-/*------------------------------------*\
-    PROTAGONIST OBJECT
-\*------------------------------------*/
+  /* PROTAGONIST OBJECT */
+
 
 .protagonist {
   color: #000;
@@ -110,9 +105,9 @@
   color: orange;
 }
 
-/*------------------------------------*\
-    QUOTES
-\*------------------------------------*/
+
+  /* QUOTES */
+
 
 .quote {
   margin-top: 50px;
@@ -160,9 +155,9 @@
   width: 25px;
 }
 
-/*------------------------------------*\
-    FOOTER
-\*------------------------------------*/
+
+    /* FOOTER */
+
 
 .site-foot {
   margin-top: 100px;
