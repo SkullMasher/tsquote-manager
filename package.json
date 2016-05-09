@@ -38,7 +38,7 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean",
-    "start": "browser-sync start -s",
+    "start": "node node_scripts/start.js",
     "build": "node node_scripts/build.js"
   }
 }

@@ -1500,6 +1500,14 @@ s,m,l,n = small, medium, large, none
 /* ----------------------------- */
 /* ==desktop and HD devices      */
 /* ----------------------------- */
+@media (min-width: 961px) {
+  /* rules for big resources and big screens like: background-images, font-faces, etc. */
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  /* style adjustments for high density devices */
+}
+
 /* ---------------------------------- */
 /* ==Responsive large                 */
 /* ---------------------------------- */
@@ -2052,6 +2060,11 @@ th {
   padding: 0.3em 0.8em;
   border: 1px #aaa dotted;
   text-align: left;
+}
+
+/* Fuckery */
+body {
+  background-color: chartreuse;
 }
 
 /* WRAPPER */
