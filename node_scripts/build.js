@@ -1,3 +1,5 @@
+'use strict'
+
 let Promise = require('bluebird')
 let chalk = require('chalk')
 let dateFormat = require('dateformat')
@@ -7,22 +9,25 @@ let Imagemin = require('imagemin')
 
 // http://bluebirdjs.com/docs/api/promisification.html
 let fs = Promise.promisifyAll(require('fs'))
-// let mkdirp = Promise.promisifyAll(require('mkdirp'))
+let mkdirp = Promise.promisifyAll(require('mkdirp'))
 let ncp = Promise.promisifyAll(require('ncp'))
 
 // console.log for 1337 h4X0r
 let log = console.log.bind(console)
 
-// let nowFormat = dateFormat(new Date(), 'HH:MM:ss')
+let catchError = function (err) { console.error(err) }
+
+let nowFormat = dateFormat(new Date(), 'HH:MM:ss')
 
 // File & folder path used by this program
-const buildFolderName = 'dist'
-const buildFolderNameCss = 'css'
-const buildFolderNameJs = 'js'
-const buildFolderNameImg = 'img'
-const fontFolderName = 'font'
-const cssFileName = 'style.css'
-const jsFileName = 'main.js'
+let appFolder = 'app/'
+let buildFolderName = 'dist'
+let buildFolderNameCss = 'css'
+let buildFolderNameJs = 'js'
+let buildFolderNameImg = 'img'
+let fontFolderName = 'font'
+let cssFileName = 'style.css'
+let jsFileName = 'script.js'
 
 // Greeting Message
 log(chalk.red('  #####   '))
@@ -33,6 +38,15 @@ log(chalk.red('######### ') + chalk.grey(' Please wait while I get your stuff re
 log(chalk.red(' ### ###  '))
 log(chalk.red('  #####   '))
 log(chalk.red('  # # #   ') + chalk.grey(' Play more, care less, be an heartless'))
+
+let cleanDistFolder = function () {
+  log('lodr')
+  return rimraf(buildFolderName)
+    .then(function (res) {
+      log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'Old build folder cleaned')
+    })
+    .catch(catchError)
+}
 
 // Promise Version of :
 // https://stackoverflow.com/questions/11293857/fastest-way-to-copy-file-in-node-js
@@ -55,19 +69,11 @@ let copyFile = function (source, target) {
   })
 }
 
-let cleanDistFolder = function () {
-  return rimraf(buildFolderName)
-    .then(function (res) {
-      log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'Old build folder cleaned')
-    })
-    .catch(console.error)
-}
-
 let compressCss = function () {
   return new Promise(function (resolve, reject) {
-    compressor.minify({
+    new compressor.minify({
       type: 'clean-css',
-      fileIn: buildFolderNameCss + '/' + cssFileName,
+      fileIn: appFolder + buildFolderNameCss + '/' + cssFileName,
       fileOut: buildFolderName + '/' + buildFolderNameCss + '/' + cssFileName,
       callback: function (err, min) {
         if (err) {
@@ -82,9 +88,9 @@ let compressCss = function () {
 
 let compressJs = function () {
   return new Promise(function (resolve, reject) {
-    compressor.minify({
+    new compressor.minify({
       type: 'uglifyjs',
-      fileIn: buildFolderNameJs + '/' + jsFileName,
+      fileIn: appFolder + buildFolderNameJs + '/' + jsFileName,
       fileOut: buildFolderName + '/' + buildFolderNameJs + '/' + jsFileName,
       callback: function (err, min) {
         if (err) {
@@ -118,7 +124,7 @@ let minifyJs = function () {
 let imgmin = function () {
   return new Promise(function (resolve, reject) {
     return new Imagemin()
-      .src('img/*.{gif,jpg,png,svg}')
+      .src(appFolder + 'img/*.{gif,jpg,png,svg}')
       .dest(buildFolderName + '/' + buildFolderNameImg)
       .use(Imagemin.jpegtran({progressive: true}))
       .use(Imagemin.svgo())
@@ -136,7 +142,7 @@ let imgmin = function () {
 }
 
 let copyFont = function () {
-  return ncp.ncpAsync(fontFolderName, buildFolderName + '/' + fontFolderName)
+  return ncp.ncpAsync(appFolder + fontFolderName, buildFolderName + '/' + fontFolderName)
     .then(function () {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'Font folder copied')
     })
@@ -144,7 +150,7 @@ let copyFont = function () {
 }
 
 let copyHtml = function () {
-  return copyFile('index.html', 'dist/index.html')
+  return copyFile(appFolder + 'index.html', buildFolderName + '/index.html')
     .then(function (res) {
       log(chalk.green('[' + dateFormat(new Date(), 'HH:MM:ss') + '] ') + 'index.html copied')
     })
@@ -164,5 +170,6 @@ cleanDistFolder()
   .then(minifyCss)
   .then(minifyJs)
   .then(imgmin)
-  .then(copyFont)
   .then(copyHtml)
+  .then(copyFont)
+  .catch(catchError)
