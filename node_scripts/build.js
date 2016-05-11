@@ -27,7 +27,7 @@ let buildFolderNameJs = 'js'
 let buildFolderNameImg = 'img'
 let fontFolderName = 'font'
 let cssFileName = 'style.css'
-let jsFileName = 'script.js'
+let jsFileName = 'main.js'
 
 // Greeting Message
 log(chalk.red('  #####   '))

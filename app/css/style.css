@@ -2062,11 +2062,6 @@ th {
   text-align: left;
 }
 
-/* Fuckery */
-body {
-  background-color: chartreuse;
-}
-
 /* WRAPPER */
 .wrapper {
   width: 700px;
